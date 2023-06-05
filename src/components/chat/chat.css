@@ -1,0 +1,39 @@
+.chat{
+    max-width: 45%;
+    display: flex;
+    position: relative;
+}
+.chat p{
+    max-width: max-content;
+    background-color: var(--background);
+    padding: 10px 20px;
+    border-radius: 0px 20px 20px 20px;
+}
+
+.chat img{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top:-30px;
+    left: -28px;
+}
+
+.user{
+   align-self:flex-end;
+}
+
+.user p
+{
+    max-width: max-content;
+    background-color: var(--background);
+    padding: 10px 20px;
+    border-radius: 20px 0px 20px 20px;
+}
+
+.user img{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left:100%;
+
+}

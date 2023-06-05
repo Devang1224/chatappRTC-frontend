@@ -1,0 +1,23 @@
+:root{
+    --background:#F6F1F1;
+    --color1:#AFD3E2;
+    --color2:#19A7CE;
+    --color3:#146C94;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:  Ubuntu, sans-serif;
+}
+
+.main_container{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

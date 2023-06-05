@@ -1,0 +1,37 @@
+.singleconvo_container{
+    width: 100%;
+    min-height: 70px;
+    background-color: var(--background);
+    border-radius: 20px;
+    margin-bottom: 5px;
+    transition: all .5s ease;
+    cursor: pointer;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.singleconvo_container:hover{
+ box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  transform: translateY(-5px);
+}
+
+.singleconvo_container img{
+    width: 50px;
+    height: 50px;
+}
+
+.singleconvo_container h3{
+
+    width: 100%;
+    padding-left: 10px;
+    font-weight: 100;
+}
+
+.singleconvo_container:active{
+  transform: translateY(0px);
+
+
+}
