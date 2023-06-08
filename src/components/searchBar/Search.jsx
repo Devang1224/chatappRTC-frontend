@@ -50,7 +50,7 @@ const handleSearch = async (e) => {
             ?
             <p>No results found</p>
             :
-             searchUser?.map((item)=>item._id!==data.UserId && <Searchresult username = {item.username} id={item._id} key={item.id} box={setSearchBox}/>)  // dont display the currentuser in the searchlist
+             searchUser?.map((item)=>item._id!==data.UserId && <Searchresult username = {item.username} id={item._id} url={item.url} key={item._id} box={setSearchBox}/>)  // dont display the currentuser in the searchlist
            }
             </div>
        }

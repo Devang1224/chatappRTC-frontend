@@ -13,7 +13,7 @@ const UsercontextProvider = ({children}) => {
   const INITIAL_STATE = {
     Username:JSON.parse(localStorage.getItem('user'))?.username,
     UserId:JSON.parse(localStorage.getItem('user'))?.id,
-    UserConvos:[]
+    UserDp:JSON.parse(localStorage.getItem('user'))?.url,
   }
   
   
@@ -26,6 +26,7 @@ const UsercontextProvider = ({children}) => {
           ...state,
           Username: action.payload.username,
           UserId: action.payload.id,
+          UserDp:action.payload.url,
         };
       case "LOGOUT":
         localStorage.removeItem('user');
@@ -33,19 +34,15 @@ const UsercontextProvider = ({children}) => {
           ...state,
           Username: '',
           UserId: '',
+          UserDp:''
         };
-      case "SAVE_CONVOS":
-        return{
-          ...state,
-          UserConvos:[...action.payload]
-        }  
-  
+
       default:
         return state;
     }
   
-  
   }
+  
   const [state,dispatch] = useReducer(userReducer,INITIAL_STATE);
 
 

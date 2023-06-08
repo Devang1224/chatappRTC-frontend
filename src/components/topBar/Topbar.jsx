@@ -15,15 +15,15 @@ const Logout = ()=>{
   dispatch({ type: "LOGOUT"});
   navigate("/login");
 }
+console.log(data.UserDp);
 
   return (
     <div className='left_topbar'>
    
 
     <div className='user_container'>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"/>
+        <img src={data.UserDp || "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"}/>
         <p>{data.Username}</p>
-   
     </div>
     <button onClick={Logout}>Logout</button>
 

@@ -3,49 +3,58 @@ import "./convos.css";
 import SingleConvo from "../SingleConvo/SingleConvo";
 import { userContext } from "../../contextApi/Usercontext";
 import { userRequest } from "../../ApiCalls";
+import ConvosLoader from "./convosLoader/ConvosLoader";
 
 
 const Convos = () => {
-  // const [convos, setConvos] = useState([]);
+  const [convos, setConvos] = useState(null);
   const {data,dispatch} = useContext(userContext);
-
- const fetchConvos = async () => {
-      try {
-        // const res = await userRequest.get(`/chat/${data.UserId}`);
-        // if(res.status === 200) {
-        console.log(data.UserId);
- 
-          //  dispatch({ type: "SAVE_CONVOS", payload: res.data });
-        // }
-
   
+
+
+
+  useEffect(() => {
+
+    const fetchConvos = async () => {
+      try {
+        const res = await userRequest.get(`/chat/${data.UserId}`);
+        setConvos(res.data)
       } catch (err) {
         console.log(err);
       }
-    }
-  
+    };
 
-  // useEffect(() => {
+   data.UserId && fetchConvos();
 
-    fetchConvos();
-
-  // }, []);
+  }, [data.UserId]); 
 
 
   return (
     <div className="convos_container">
-      {/* { convos.length==0
-      ?
-      <div style={{height:"100%",display:"flex",alignItems:"center"}}>
-        <p style={{color:"rgba(0,0,0,0.4)"}}>You have no conversations yet</p>
-      </div>
-      :
-        convos.map((item)=><SingleConvo name={item.receiverData.receiverName} id={item.receiverData.receiverId} key={item.receiverData.receiverId}/>)
-      
-      } */}
-      <button onClick={() => fetchConvos()}>Call Function</button>
 
+      {convos==null
+         ?
+         <ConvosLoader/>
+      :
+      ( convos?.length==0
+             ?
+             <div style={{height:"100%",display:"flex",alignItems:"center"}}>
+                  <p style={{color:"rgba(0,0,0,0.4)"}}>You have no conversations yet</p>
+              </div>
+            :
+           convos.map((item)=><SingleConvo 
+            name={item.receiverData.receiverName === data.Username ? item.senderData.senderName : item.receiverData.receiverName}
+            id={item.senderData.senderId}
+            convoId={item._id} key={item._id}
+            url={item.receiverData.receiverName === data.Username ? item.senderData.senderImage : item.receiverData.receiverImage}
+            />
+            )
+      
+      )
+
+      }
     </div>
+      
   );
 };
 

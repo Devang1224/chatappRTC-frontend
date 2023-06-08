@@ -20,7 +20,7 @@ const handleSubmit = async(e)=>{
 
   await userRequest.post("/user/login",{username,password}).then((res)=>{
 
-  dispatch({ type: "SAVE_USER", payload: { username: res.data.username, id: res.data.id } });
+  dispatch({ type: "SAVE_USER", payload: { username: res.data.username, id: res.data.id, url:res.data.url } });
    setError("");
    navigate("/");
 

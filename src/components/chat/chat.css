@@ -16,6 +16,8 @@
     position: absolute;
     top:-30px;
     left: -28px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .user{
@@ -35,5 +37,7 @@
     height: 30px;
     position: absolute;
     left:100%;
+    border-radius: 50%;
+    object-fit: cover;
 
 }

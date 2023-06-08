@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./chat.css"
+import { userContext } from '../../contextApi/Usercontext'
 
-const Chat = () => {
+
+const Chat = (props) => {
+
+  const {data} = useContext(userContext)
+  console.log(props.url);
   return (
-    <div className='chat user'>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png" alt="" />
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore reiciendis culpa, ipsam repellendus excepturi sequi in odit eos, et voluptate soluta eveniet tempore laboriosam. Nisi illum fugit recusandae libero deserunt?</p>
+    <div className={`chat ${props.id==data.UserId && "user" }`}>
+        <img src={props.url || "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"} alt="" />
+        <p>{props.text}</p>
     </div>
   )
 }

@@ -9,22 +9,28 @@ const Searchresult = (props) => {
 
  const[currentUserData,setCurrentUserData] = useState({
   userId:data.UserId,
-  userName:data.Username
+  userName:data.Username,
+  userImage:data.UserDp
  })
 
  const [receiverData,setReceiverData]=useState({
       receiverId:props.id,
-      receiverName:props.username
+      receiverName:props.username,
+      receiverImage:props.url
     })
 
-
+const senderData = {
+  senderId:data.UserId,
+  senderName:data.Username,
+  senderImage:data.UserDp
+ }
 
   const handleClick = async()=>{ 
     
     try{
       
       if(receiverData.receiverId!==data.UserId){
-         const res = await userRequest.post("/chat/conversation",{userData:currentUserData,receiverData:receiverData})
+         const res = await userRequest.post("/chat/conversation",{userData:currentUserData,receiverData:receiverData,senderData})
           
         }
     }
@@ -38,7 +44,7 @@ const Searchresult = (props) => {
   return (
 
     <div className='searchresult_container' onClick={handleClick}>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"/>
+          <img src={props.url || "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"}/>
             <h3>{props.username}</h3>
     </div>
   )

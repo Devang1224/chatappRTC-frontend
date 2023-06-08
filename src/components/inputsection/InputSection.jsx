@@ -1,16 +1,55 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import"./inputsection.css"
 import SendIcon from '@mui/icons-material/Send';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
-
+import {userRequest} from "../../ApiCalls"
+import { receiverContext } from '../../contextApi/ReceiverProvider';
+import { userContext } from '../../contextApi/Usercontext';
 
 const InputSection = () => {
+
+const [message,setMessage] = useState("")
+const {receiverData} = useContext(receiverContext)
+const {data} = useContext(userContext)
+
+
+
+const handleKey = (e)=>{
+  e.code =="Enter" && handleSend();
+}
+console.log(message.trim()?.length);
+const handleSend = async()=>{
+
+try
+{
+
+   if((message.trim()?.length)!=0)
+   {
+    setMessage((prev)=>prev.trim())
+     const res = await userRequest.post("/chat/messages",{ conversationId:receiverData.ConvoId,
+                                                           senderId:data.UserId, // sender Id
+                                                           senderImage:data.UserDp,
+                                                           text:message
+                                                          })
+   }
+                                                      
+
+  
+}
+catch(err){
+console.log(err);
+}
+
+  setMessage("")
+
+}
+
   return (
     <div className='input_container'>
       <div className='input_box'>
-             <input type="text" placeholder='Type a message'/>
+             <input type="text" placeholder='Type a message' onChange={e=>setMessage((e.target.value))} onKeyDown={handleKey} value={message}/>
              
-             <div className='send'>
+             <div className='send' onClick={handleSend}>
                 <SendIcon/>
              </div>
       </div>
