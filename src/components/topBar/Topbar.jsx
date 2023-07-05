@@ -15,7 +15,6 @@ const Logout = ()=>{
   dispatch({ type: "LOGOUT"});
   navigate("/login");
 }
-console.log(data.UserDp);
 
   return (
     <div className='left_topbar'>

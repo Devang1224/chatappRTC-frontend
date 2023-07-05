@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import"./inputsection.css"
 import SendIcon from '@mui/icons-material/Send';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
@@ -6,7 +6,8 @@ import {userRequest} from "../../ApiCalls"
 import { receiverContext } from '../../contextApi/ReceiverProvider';
 import { userContext } from '../../contextApi/Usercontext';
 
-const InputSection = () => {
+
+const InputSection = ({socket}) => {
 
 const [message,setMessage] = useState("")
 const {receiverData} = useContext(receiverContext)
@@ -14,10 +15,12 @@ const {data} = useContext(userContext)
 
 
 
+
+
 const handleKey = (e)=>{
   e.code =="Enter" && handleSend();
 }
-console.log(message.trim()?.length);
+
 const handleSend = async()=>{
 
 try
@@ -37,8 +40,25 @@ try
   
 }
 catch(err){
-console.log(err);
+   console.log(err);
 }
+
+  // socket.current.to(receiverData.ConvoId).emit("newMessage",{
+  //   conversationId:receiverData.ConvoId,
+  //   senderId:data.UserId, // sender Id
+  //   senderImage:data.UserDp,
+  //   text:message
+  // });
+
+ socket.current.emit("newMessage",{
+  conversationId:receiverData.ConvoId,
+  senderId:data.UserId, // sender Id
+  senderImage:data.UserDp,
+  text:message,
+  _id:receiverData.ConvoId+4
+});
+
+
 
   setMessage("")
 

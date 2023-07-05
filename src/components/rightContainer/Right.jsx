@@ -13,12 +13,12 @@ const {receiverData} = useContext(receiverContext);
 
   return (
 
-  receiverData.ReceiverName?<div className='right_container'>
-
+  receiverData.ReceiverName
+  ?
+  <div className='right_container'>
       <RightTopBar/>
        <ChatSection/>
-      <InputSection/>
-    </div>
+  </div>
     :
 <div className='right_container message'>
     <img src= {MessagingImage} style={{width:"35vw", height:"35vw"}}/>

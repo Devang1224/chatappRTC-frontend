@@ -2,8 +2,35 @@
     max-width: 45%;
     display: flex;
     position: relative;
+    cursor: pointer;
 }
-.chat p{
+
+
+.chat:hover .trashChat{
+   display: block;
+}
+
+.chat .trashChat{
+    cursor: pointer;
+    background-color: transparent;
+    outline:none;
+    border:none;
+    display: none;
+}
+
+
+.trashChat:active .chat{
+
+}
+
+.receiver .chatContent{
+   flex-direction: row-reverse;
+     
+}
+
+
+
+.chatContent p{
     max-width: max-content;
     background-color: var(--background);
     padding: 10px 20px;
@@ -20,11 +47,18 @@
     object-fit: cover;
 }
 
+.chatContent{
+    display: flex;
+}
+
+
 .user{
    align-self:flex-end;
 }
 
-.user p
+
+
+.user .chatContent p
 {
     max-width: max-content;
     background-color: var(--background);
@@ -40,4 +74,13 @@
     border-radius: 50%;
     object-fit: cover;
 
+}
+
+.deletedMessage{
+    min-width: 120px;
+    text-align: center;
+    padding: 5px;
+    background-color: rgba(128, 128, 128, 0.21);
+    border-radius: 10px;
+    font-size: 10px;
 }

@@ -7,7 +7,6 @@ import ReceiverProvider, { receiverContext } from '../../contextApi/ReceiverProv
 const RightTopBar = () => {
 
 const {receiverData,dispatch} = useContext(receiverContext)
-console.log(receiverData);
 
 
   return (

@@ -7,7 +7,6 @@ const SingleConvo = (props) => {
 
 const {dispatch} = useContext(receiverContext);
 
-console.log(props.id);
 
  const handleClick = ()=>{
     // dispatch({type:"RECEIVER",payload:{receiverName:props.name,receiverId:props.id}})
