@@ -7,7 +7,7 @@ import Loader from "./loader/Loader"
 import io  from "socket.io-client";
 import InputSection from '../inputsection/InputSection'
 
-const END_POINT = "http://localhost:3000";
+const END_POINT = "https://chatrtc.onrender.com";
 
 
 const ChatSection = () => {
