@@ -1,35 +1,35 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import"./chatsection.css"
 import Chat from '../chat/Chat'
 import { userRequest } from '../../ApiCalls'
 import { receiverContext } from '../../contextApi/ReceiverProvider'
 import Loader from "./loader/Loader"
-import io  from "socket.io-client";
 import InputSection from '../inputsection/InputSection'
+import { userContext } from '../../contextApi/Usercontext'
+import {useSocket} from '../../contextApi/SocketProvider'
 
-const END_POINT = "https://chatrtc.onrender.com";
 
 
 const ChatSection = () => {
 
 
   const[chats,setChats] = useState(null)
- const scrollRef = useRef();
+  const scrollRef = useRef();
   const{receiverData} = useContext(receiverContext)
-
-  const socket = useRef();
+  const {data} = useContext(userContext)
+  const {socket} = useSocket()
 
 
  useEffect(()=>{
-    socket.current=io(END_POINT);
-     socket.current.on("connected",(data)=>
+
+     socket.on("connected",(data)=>
        {console.log(data);})
     
- },[])
+ },[socket])
 
 
 
-    const getChats= async()=>{
+  const getChats= useCallback(async()=>{
 
       try{
               const res = await userRequest.get(`/chat/messages/${receiverData.ConvoId}`)
@@ -40,26 +40,34 @@ const ChatSection = () => {
       {
          console.log(err);
       }
-      socket.current.emit("privateChat",receiverData.ConvoId)
+      const convoid = receiverData.ConvoId;
+      const username= data.Username;
+      socket.emit("privateChat",{convoid,username});
 
-    }
+    },[data.Username, receiverData.ConvoId, socket]);
 
   useEffect(()=>{
-
     getChats();
+  },[getChats, receiverData.ConvoId])
 
 
-  },[receiverData.ConvoId])
-
-
+// sending message  
 useEffect(()=>{
-  socket.current.on("Message",(message)=>{
+  socket.on("Message",(message)=>{
     console.log(message);
     setChats((prev)=>[...prev,message])
    })
    
 },[])
 console.log(chats);
+// sending message  
+
+
+
+useEffect(()=>{
+  scrollRef.current?.scrollIntoView({bhaviour:"smooth"})
+},[chats])
+
 
   return (
 
@@ -74,7 +82,9 @@ console.log(chats);
           :
           (chats?.length!=0
                    ?
-                    chats.map((item)=><Chat text={item.text} id = {item.senderId} url={item.senderImage} key={item._id} messageId={item._id}/> )
+                    chats.map(
+                      (item,index)=><div ref={scrollRef} key={index} className={`chat ${item.senderId==data.UserId ? "user":"receiver" }`}><Chat text={item.text} id = {item.senderId} url={item.senderImage} key={item._id} messageId={item._id} /></div>
+                      )
                      :
                    <div style={{
                       width:"100%",
@@ -95,7 +105,7 @@ console.log(chats);
 
        
        </div>
-    <InputSection socket={socket} />
+    <InputSection />
     </>
     
   )

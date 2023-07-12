@@ -5,14 +5,15 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 import {userRequest} from "../../ApiCalls"
 import { receiverContext } from '../../contextApi/ReceiverProvider';
 import { userContext } from '../../contextApi/Usercontext';
+import {useSocket} from '../../contextApi/SocketProvider'
 
 
-const InputSection = ({socket}) => {
+const InputSection = () => {
 
 const [message,setMessage] = useState("")
 const {receiverData} = useContext(receiverContext)
 const {data} = useContext(userContext)
-
+const {socket}=useSocket();
 
 
 
@@ -43,14 +44,9 @@ catch(err){
    console.log(err);
 }
 
-  // socket.current.to(receiverData.ConvoId).emit("newMessage",{
-  //   conversationId:receiverData.ConvoId,
-  //   senderId:data.UserId, // sender Id
-  //   senderImage:data.UserDp,
-  //   text:message
-  // });
 
- socket.current.emit("newMessage",{
+
+ socket.emit("newMessage",{
   conversationId:receiverData.ConvoId,
   senderId:data.UserId, // sender Id
   senderImage:data.UserDp,

@@ -31,7 +31,7 @@ const handleSearch = async (e) => {
 };
 
 
-  // const debouncedSearch = debounce(handleSearch, 100); // Adjust the debounce delay as needed (e.g., 300 milliseconds)
+  const debouncedSearch = debounce(handleSearch, 300); // Adjust the debounce delay as needed (e.g., 300 milliseconds)
 
   return (
     <>
@@ -40,7 +40,7 @@ const handleSearch = async (e) => {
           
            
           <label htmlFor="search"><SearchIcon/></label>
-            <input id ="search"  type="search" placeholder='Search or start new chat' onChange={handleSearch} onFocus={(event) => { event.target.setAttribute('autocomplete', 'off') }}/>
+            <input id ="search"  type="search" placeholder='Search or start new chat' onChange={debouncedSearch} onFocus={(event) => { event.target.setAttribute('autocomplete', 'off') }}/>
 
         </div>
 

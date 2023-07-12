@@ -3,11 +3,25 @@ import "./righttopbar.css"
 import VideocamIcon from '@mui/icons-material/Videocam';
 import { userContext } from '../../contextApi/Usercontext';
 import ReceiverProvider, { receiverContext } from '../../contextApi/ReceiverProvider';
+import { useNavigate } from 'react-router-dom'
+import { useSocket } from '../../contextApi/SocketProvider';
+
 
 const RightTopBar = () => {
 
 const {receiverData,dispatch} = useContext(receiverContext)
+const {data} = useContext(userContext);
+const navigate = useNavigate();
+const {socket} = useSocket();
 
+const startVideoCall = ()=>{
+   
+  const User = data.Username;
+  const convoId = receiverData.ConvoId;
+  socket.emit("enterVideoCall",{User,convoId})
+
+  navigate(`/videoCall/${receiverData.ReceiverId}`);
+}
 
   return (
 
@@ -19,7 +33,9 @@ const {receiverData,dispatch} = useContext(receiverContext)
        </div>
     
        <div className='videocam'>
+        <button onClick ={startVideoCall}>
            <VideocamIcon/>
+        </button>
        </div>
    
       

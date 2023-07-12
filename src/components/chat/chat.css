@@ -2,16 +2,16 @@
     max-width: 45%;
     display: flex;
     position: relative;
-    cursor: pointer;
+
 }
 
 
-.chat:hover .trashChat{
+.userChat:hover .trashChat{
    display: block;
+   cursor: pointer;
 }
 
-.chat .trashChat{
-    cursor: pointer;
+.userChat .trashChat{
     background-color: transparent;
     outline:none;
     border:none;
@@ -19,11 +19,12 @@
 }
 
 
-.trashChat:active .chat{
+.trashChat:active .userChat{
 
 }
 
-.receiver .chatContent{
+
+.receiver .userChat .chatContent{
    flex-direction: row-reverse;
      
 }
@@ -37,7 +38,7 @@
     border-radius: 0px 20px 20px 20px;
 }
 
-.chat img{
+.userChat img{
     width: 30px;
     height: 30px;
     position: absolute;
@@ -58,7 +59,7 @@
 
 
 
-.user .chatContent p
+.user .userChat .chatContent p
 {
     max-width: max-content;
     background-color: var(--background);
@@ -66,7 +67,7 @@
     border-radius: 20px 0px 20px 20px;
 }
 
-.user img{
+.user .userChat img{
     width: 30px;
     height: 30px;
     position: absolute;

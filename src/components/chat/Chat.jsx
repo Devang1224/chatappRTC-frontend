@@ -22,7 +22,8 @@ const Chat = (props) => {
 
 
   return (
-    <div className={`chat ${props.id==data.UserId ? "user":"receiver" }`}>
+    // className={`chat ${props.id==data.UserId ? "user":"receiver" }`}
+    <div className="userChat">
 
       {isDeleted?<div className='deletedMessage'>
                   message deleted
@@ -30,7 +31,7 @@ const Chat = (props) => {
       :
       (<>
       <div className='chatContent'>
-        <button className='trashChat' onClick={handleDelete}><DeleteIcon/></button>
+     { (props.id==data.UserId) && <button className='trashChat' onClick={handleDelete}><DeleteIcon/></button>}
         <p>{props.text}</p>
       </div>
 

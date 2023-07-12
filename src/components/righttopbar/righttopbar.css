@@ -40,3 +40,9 @@
 .videocam:hover{
     background-color:rgba(175,211,226,0.2);
 }
+
+.videocam button{
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
