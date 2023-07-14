@@ -5,7 +5,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import { userContext } from "./contextApi/Usercontext";
 import ErrorPage from "./pages/Error404page/ErrorPage";
-import Videocall from "./pages/VideoCall/Videocall";
+// import Videocall from "./pages/VideoCall/Videocall";
 
 function App() {
 
@@ -33,7 +33,7 @@ const ProtectedRoute = ({ children }) => {
             </ProtectedRoute>} />
           <Route path="login" element={<Login/>}/>
          <Route path="register" element={<Register/>}/>
-         <Route path="videoCall/:receiverId" element={<Videocall/>}/>
+         {/* <Route path="videoCall/:receiverId" element={<Videocall/>}/> */}
          <Route path="*" element={<ErrorPage/>}/>
       </Route>
 

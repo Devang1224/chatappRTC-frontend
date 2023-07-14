@@ -1,0 +1,52 @@
+.videocall-container{
+    background-color: rgba(8, 6, 6, 0.867);
+    width: 100vw;
+    height: 100vh;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:200;
+}
+
+.stream-container{
+    background-color: rgba(80, 199, 199, 0.957);
+    width: 68.4%;
+    height: 90%;
+    position: relative;
+    top:2%;
+    left:15%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.userStream-container{
+    background-color: rgba(80, 130, 199, 0.957);
+    /* width: 25%;
+    height: 25%; */
+    width: 17.2rem;
+    height: 13rem;
+    position: relative;
+    bottom:25%;
+    left:3%;
+    border-radius: 10px;
+  z-index: 300;
+  overflow: hidden;
+
+}
+
+.callhandlers-container{
+
+    position:absolute;
+    bottom:2%;
+    left:50%;
+    transform: translateX(-50%);
+
+}
+
+.reactplayer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

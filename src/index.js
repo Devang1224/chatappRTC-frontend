@@ -9,9 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <UsercontextProvider>
     <SocketProvider>
-      <PeerProvider>
         <App />
-      </PeerProvider>
     </SocketProvider>
   </UsercontextProvider>
 );
