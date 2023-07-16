@@ -12,6 +12,8 @@ import { setAppElement } from 'react-modal';
 import CallIcon from '@mui/icons-material/Call';
 import CallEndIcon from '@mui/icons-material/CallEnd';
 import CloseIcon from '@mui/icons-material/Close';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Set the app element
 setAppElement('#root');
@@ -31,6 +33,7 @@ const [isNegotiationDone, setIsNegotiationDone] = useState(false);
 const [videoEnabled, setVideoEnabled] = useState(true);
 const[audioEnabled,setAudioEnabled] = useState(true)
 const [remoteUser,setRemoteUser] = useState(null)
+const[callRejectedNotification,setCallRejectedNotification] = useState(false)
 
 // function to start video call
 const startVideoCall = ()=>{
@@ -39,9 +42,6 @@ const startVideoCall = ()=>{
   const convoId = receiverData.ConvoId;
   const Receiver = receiverData.ReceiverName;
   socket.emit("roomJoined",{User,convoId,Receiver})
-
-  // navigate(`/videoCall/${receiverData.ReceiverId}`);
-
     setOnGoingCall(true)
 
 }
@@ -153,6 +153,22 @@ const handleNegoNeedFinal = useCallback(async ({ ans }) => {
 
 //handling negotiation
 
+const rejectedCallHandler = useCallback(async()=>{
+  setOnGoingCall(false);
+  toast.error('Call Rejected!', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    })
+
+},[])
+
+
 // sending user's stream to remote
 const sendStreams = useCallback(() => {
   if (myStream) {
@@ -164,6 +180,8 @@ const sendStreams = useCallback(() => {
     console.log("myStream is undefined");
   }
 }, [myStream]);
+
+
 
 
 
@@ -186,6 +204,7 @@ useEffect(() => {
   socket.on("call:accepted", handleCallAccepted);
   socket.on("peer:nego:needed", handleNegoNeedIncomming);
   socket.on("peer:nego:final", handleNegoNeedFinal);
+  socket.on("RejectedCall",rejectedCallHandler);
 
   return () => {
     socket.off("user-joined", handleUserJoined);
@@ -193,6 +212,8 @@ useEffect(() => {
     socket.off("call:accepted", handleCallAccepted);
     socket.off("peer:nego:needed", handleNegoNeedIncomming);
     socket.off("peer:nego:final", handleNegoNeedFinal);
+    socket.off("RejectedCall",rejectedCallHandler);
+
   };
 }, [socket,
    handleUserJoined,
@@ -243,22 +264,33 @@ const hangUpHandler = useCallback(() => {
 
   // Close the Peer connection
   peer.peer.close();
+  peer.peer = null;
 
   // Reset the state variables
   setMyStream(null);
   setRemoteStream(null);
   setOnGoingCall(false);
   setIsNegotiationDone(false);
-
+  
+  window.location.reload();
 }, [myStream]);
 
 console.log(remoteStream);
 
 
 
-setTimeout(()=>{
+
+const rejectCallHandler = async ()=>{
+
 setIncomingCall(false);
-},20000)
+socket.emit("callRejected",{to:remoteSocketId})
+
+}
+
+
+// setTimeout(()=>{
+// setIncomingCall(false);
+// },20000)
 
 
   return (
@@ -278,9 +310,9 @@ setIncomingCall(false);
    
       
 
-      { incomingCall && <div className='incomingCallModal'>
+       {  incomingCall && <div className='incomingCallModal'>   {/*incomingCall */}
                
-               <CloseIcon className='closeicon'/>
+               <button className='closeicon' onClick={()=>setIncomingCall(false)}> <CloseIcon/></button>
                <div className='incomingCall-headerContainer'> 
                  <h2>Incoming Call</h2>
                  <h2 className='username'>{remoteUser}</h2>
@@ -290,7 +322,7 @@ setIncomingCall(false);
                
               
               <div className='handleCall-container'>
-                <button onClick={() => setIncomingCall(false)} className="rejectCall"><CallEndIcon style={{color:"white"}}/></button>
+                <button onClick={rejectCallHandler} className="rejectCall"><CallEndIcon style={{color:"white"}}/></button>
                 <button onClick={() => {
                    setOnGoingCall(true);
                    setIncomingCall(false);

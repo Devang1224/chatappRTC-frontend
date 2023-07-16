@@ -154,6 +154,8 @@ padding-bottom: 10px;
 position: absolute;
 top:2px;
 right: 2px;
+border:none;
+background-color: white;
 }
 
 .callloader-container{

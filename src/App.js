@@ -5,6 +5,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import { userContext } from "./contextApi/Usercontext";
 import ErrorPage from "./pages/Error404page/ErrorPage";
+import { ToastContainer } from "react-toastify";
 // import Videocall from "./pages/VideoCall/Videocall";
 
 function App() {
@@ -33,12 +34,24 @@ const ProtectedRoute = ({ children }) => {
             </ProtectedRoute>} />
           <Route path="login" element={<Login/>}/>
          <Route path="register" element={<Register/>}/>
-         {/* <Route path="videoCall/:receiverId" element={<Videocall/>}/> */}
          <Route path="*" element={<ErrorPage/>}/>
       </Route>
 
      </Routes>
  </BrowserRouter>
+
+ <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
     </div> 
   );
 }
