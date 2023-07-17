@@ -23,7 +23,7 @@ const navigate = useNavigate();
 const handleImage = async(e)=>{
   const file = e.target.files[0];
   const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-  const maxSizeInBytes = 10 * 1024 * 1024;
+  const maxSizeInBytes = 1 * 1024 * 1024;
   
 
   if (file && allowedTypes.includes(file.type)) {
@@ -42,7 +42,7 @@ const handleImage = async(e)=>{
       }
      }
      else{
-       setError("Image size should be less than 10Mb")
+       setError("Image size should be less than 1Mb")
      } 
 
   } 
@@ -57,8 +57,6 @@ const handleSubmit = async(e)=>{
   const email = e.target[2].value
   const password = e.target[3].value;
 
-
-console.log(imageUrl);
 
   // saving user details in mongodb
     await userRequest.post("/user/register",{username,email,password,url:imageUrl}).then((res)=>{

@@ -22,7 +22,7 @@ const Chat = (props) => {
 
 
   return (
-    // className={`chat ${props.id==data.UserId ? "user":"receiver" }`}
+
     <div className="userChat">
 
       {isDeleted?<div className='deletedMessage'>

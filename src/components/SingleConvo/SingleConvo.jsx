@@ -9,7 +9,7 @@ const SingleConvo = (props) => {
 const {dispatch} = useContext(receiverContext);
 
  const handleClick = ()=>{
-    // dispatch({type:"RECEIVER",payload:{receiverName:props.name,receiverId:props.id}})
+
      dispatch({type:"RECEIVER",payload:{name:props.name,id:props.id,convoid:props.convoId,url:props.url}})
     
  }

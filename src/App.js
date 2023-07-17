@@ -6,14 +6,13 @@ import Register from "./pages/Register/Register";
 import { userContext } from "./contextApi/Usercontext";
 import ErrorPage from "./pages/Error404page/ErrorPage";
 import { ToastContainer } from "react-toastify";
-// import Videocall from "./pages/VideoCall/Videocall";
+
 
 function App() {
 
 
   const {data} = useContext(userContext);
 
-console.log(data.Username,data.UserId)
 
 const ProtectedRoute = ({ children }) => {
   if (!data.Username || typeof data.Username === "undefined") {

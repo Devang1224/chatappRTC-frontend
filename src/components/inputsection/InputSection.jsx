@@ -31,7 +31,7 @@ try
    {
     setMessage((prev)=>prev.trim())
      const res = await userRequest.post("/chat/messages",{ conversationId:receiverData.ConvoId,
-                                                           senderId:data.UserId, // sender Id
+                                                           senderId:data.UserId, // sender's Id
                                                            senderImage:data.UserDp,
                                                            text:message
                                                           })
@@ -48,7 +48,7 @@ catch(err){
 
  socket.emit("newMessage",{
   conversationId:receiverData.ConvoId,
-  senderId:data.UserId, // sender Id
+  senderId:data.UserId, // sender's Id
   senderImage:data.UserDp,
   text:message,
   _id:receiverData.ConvoId+4

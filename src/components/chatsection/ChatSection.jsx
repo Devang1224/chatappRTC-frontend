@@ -20,21 +20,11 @@ const ChatSection = () => {
   const {socket} = useSocket()
 
 
- useEffect(()=>{
-
-     socket.on("connected",(data)=>
-       {console.log(data);})
-    
- },[socket])
-
-
-
   const getChats= useCallback(async()=>{
 
       try{
               const res = await userRequest.get(`/chat/messages/${receiverData.ConvoId}`)
               setChats(res.data)
-              // console.log(res.data);
       }
       catch(err)
       {
@@ -54,12 +44,11 @@ const ChatSection = () => {
 // sending message  
 useEffect(()=>{
   socket.on("Message",(message)=>{
-    console.log(message);
     setChats((prev)=>[...prev,message])
    })
    
 },[])
-console.log(chats);
+
 // sending message  
 
 

@@ -6,4 +6,3 @@ export const userRequest = axios.create({
     baseURL:BASE_URL
 })
 
-// https://chatrtc.onrender.com
