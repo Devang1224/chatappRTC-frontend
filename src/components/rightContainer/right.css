@@ -12,3 +12,13 @@
 .message{
     justify-content: center;
 }
+
+.right_container .right_container_background{
+    width:clamp(15rem,35vw,35vw);
+    height:clamp(15rem,35vw,35vw);
+}
+
+@media only screen and (max-width:792px)
+{
+  
+}

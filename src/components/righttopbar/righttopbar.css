@@ -8,6 +8,12 @@
     justify-content: space-between;
 }
 
+
+
+.right_topbar_dark .videocam button{
+    color:rgb(125, 122, 122);
+}
+
 .sender_container{
     display: flex;
     align-items: center;

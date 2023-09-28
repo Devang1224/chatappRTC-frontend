@@ -78,7 +78,7 @@ const handleCallUser = useCallback(async () => {
   setMyStream(stream);
 
   const offer = await peer.getOffer();
-  socket.emit("user:call", { from:"jatin",to: remoteSocketId, offer });    // going to devang
+  socket.emit("user:call", {to: remoteSocketId, offer });   
 }, [audioEnabled, remoteSocketId, socket, videoEnabled]);
 
 
@@ -224,7 +224,7 @@ useEffect(() => {
 const hangUpHandler = useCallback(() => {
   // Stop local media streams
 
- const state= peer.peer.iceConnectionState
+ const state= peer.peer.iceConnectionState;
 
 
  if(state=='new')

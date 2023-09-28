@@ -37,11 +37,7 @@ const handleSearch = async (e) => {
     <>
     <div className='search_container'>
         <div className='search_bar'> 
-          
-           
-          <label htmlFor="search"><SearchIcon/></label>
             <input id ="search"  type="search" placeholder='Search or start new chat' onChange={debouncedSearch} onFocus={(event) => { event.target.setAttribute('autocomplete', 'off') }}/>
-
         </div>
 
        {searchBox && <div className='search_results'>

@@ -1,14 +1,14 @@
 
 
 .searchresult_container{
-    width: 80%;
+    width:100%;
     min-height: 70px;
-    background-color: var(--background);
-    border-radius: 20px;
+    background: white;
+    border:1px solid rgba(0, 0, 0, 0.104);
     margin-bottom: 5px;
-    transition: all .5s ease;
+    transition: all .3s ease;
     cursor: pointer;
-    border: 2px solid black;
+
     display: flex;
     align-items: center;
     padding: 10px;
@@ -17,7 +17,8 @@
 }
 
 .searchresult_container:hover{
- transform: translateX(10px);
+ /* transform: translateX(10px); */
+ background: rgba(0,163,255,0.15);
 }
 
 .searchresult_container img{
@@ -33,3 +34,4 @@
     padding-left: 10px;
     font-weight: 100;
 }
+

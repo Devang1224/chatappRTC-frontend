@@ -31,7 +31,7 @@ const Chat = (props) => {
       :
       (<>
       <div className='chatContent'>
-     { (props.id==data.UserId) && <button className='trashChat' onClick={handleDelete}><DeleteIcon/></button>}
+     { (props.id==data.UserId) && <button className='trashChat' onClick={handleDelete}><DeleteIcon className='trash_icon'/></button>}
         <p>{props.text}</p>
       </div>
 

@@ -1,15 +1,13 @@
 .singleconvo_container{
     width: 100%;
     min-height: 70px;
-    background-color: var(--background);
-    border-radius: 20px;
     margin-bottom: 5px;
-    transition: all .5s ease;
+    transition: all .3s ease;
     cursor: pointer;
-    border: 2px solid black;
     display: flex;
     align-items: center;
     padding: 10px;
+
 
 }
 
@@ -34,6 +32,4 @@
 
 .singleconvo_container:active{
   transform: translateY(0px);
-
-
 }

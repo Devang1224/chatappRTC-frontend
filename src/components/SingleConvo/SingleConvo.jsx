@@ -2,16 +2,18 @@ import React, { useContext } from 'react'
 import "./singleconvo.css"
 import { userContext } from '../../contextApi/Usercontext'
 import ReceiverProvider, { receiverContext } from '../../contextApi/ReceiverProvider';
+import { openMenuContext } from '../../contextApi/OpenMenu';
 
 
 const SingleConvo = (props) => {
 
 const {dispatch} = useContext(receiverContext);
+const {openMenu,setOpenMenu} = useContext(openMenuContext);
 
  const handleClick = ()=>{
-
+ 
      dispatch({type:"RECEIVER",payload:{name:props.name,id:props.id,convoid:props.convoId,url:props.url}})
-    
+     setOpenMenu(false);
  }
 
   return (

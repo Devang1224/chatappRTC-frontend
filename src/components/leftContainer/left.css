@@ -7,5 +7,77 @@
     align-items: center;
     background-color: var(--color2);
     position: relative;
-   border-right: 1px solid var(--color1);
+    border-right: 1px solid var(--color1);
+}
+
+.left_container_dark{
+    background-color: #121212;
+    color:white;
+}
+
+.menu_container{
+    display: none;
+}
+
+@media only screen and (max-width:792px)
+{
+
+
+    .hide_left_container{
+        transition: transform 0.5s ease;
+        position:absolute;
+        width:50%;
+        transform: translateX(-150%);
+        z-index:2;
+     
+   }
+
+    .show_left_container{
+        transition: transform 0.5s ease;
+        transform: translateX(-50%);
+        position:absolute;
+        width:50%;
+        z-index:2;
+
+    }
+
+    .menu_container{
+        display: block;
+        position: absolute;
+        right:-30px;
+        top:50%;
+       color:white;
+    }
+
+
+    
+     .menu_container .menu_icon{
+        font-size:30px;
+    }
+
+
+}
+
+
+@media only screen and (max-width:450px)
+{
+
+    .hide_left_container{
+        transition: transform 0.5s ease;
+        position:absolute;
+        width:50%;
+        transform: translateX(-150%);
+        z-index:2;
+     
+   }
+
+    .show_left_container{
+        transition: transform 0.5s ease;
+        transform: translateX(-21%);
+        position:absolute;
+        width:70%;
+        z-index:2;
+
+    }
+
 }

@@ -65,3 +65,63 @@
    
 
 }
+
+
+.emoji_container{
+display: flex;
+justify-content: center;
+align-items: center;
+width:50px;
+height: 50px;
+ cursor: pointer;
+ position: relative;
+}
+
+.emoji_button{
+    width:40px !important;
+    height: 40px !important;
+   color:rgba(0, 0, 0, 0.457);
+}
+
+.emoji_container .emoji_window{
+position: absolute;
+top:-300px;
+z-index: 0;
+
+}
+
+
+@media only screen and (max-width:792px)
+{
+    .emoji_container .emoji_window{
+        position: absolute;
+        top:-300px;
+        left:50%;
+        
+   }
+   .emoji_button{
+    width:30px !important;
+    height: 30px !important;
+}
+    
+
+}
+
+/* .mic_button{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+.mic_button .mic_icon{
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.mic_button:hover{
+    background-color:rgba(175,211,226,0.2);
+} */
+

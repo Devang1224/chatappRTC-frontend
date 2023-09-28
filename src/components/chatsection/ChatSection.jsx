@@ -72,7 +72,9 @@ useEffect(()=>{
           (chats?.length!=0
                    ?
                     chats.map(
-                      (item,index)=><div ref={scrollRef} key={index} className={`chat ${item.senderId==data.UserId ? "user":"receiver" }`}><Chat text={item.text} id = {item.senderId} url={item.senderImage} key={item._id} messageId={item._id} /></div>
+                      (item,index)=><div ref={scrollRef} key={index} className={`chat ${item.senderId==data.UserId ? "user":"receiver" }`}>
+                                       <Chat text={item.text} id = {item.senderId} url={item.senderImage} key={item._id} messageId={item._id} />
+                                    </div>
                       )
                      :
                    <div style={{
@@ -85,7 +87,7 @@ useEffect(()=>{
                       opacity:0.6,
                      }}>
                            <h2>No Messages</h2>
-                           <p>You currently have no messages.</p>
+                           <p style={{textAlign:"center"}}>You currently have no messages.</p>
                    </div>
            )
 
