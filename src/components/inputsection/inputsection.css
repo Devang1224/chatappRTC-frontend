@@ -1,7 +1,6 @@
 .input_container{
     width:100%;
     height: 10%;
-    background-color: var(--color3);
     display: flex;
     align-items: center;
     padding: 0 10px;
@@ -14,7 +13,6 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background-color: var(--color1);
     border-radius: 20px;
 }
 
@@ -24,7 +22,8 @@
     font-size: 17px;
     border: none;
     outline: none;
-    background-color: var(--color1);
+    background-color: inherit;
+    color:rgba(255, 255, 255, 0.843);
     resize: none;
     
 }
@@ -39,6 +38,7 @@
     justify-content: center;
     margin-left:10px;
     cursor: pointer;
+    color:#558BF2;
 }
 
 .input_box .send:hover{
@@ -63,7 +63,6 @@
 .attachfile:hover{
     background-color:rgba(175,211,226,0.2);
    
-
 }
 
 
@@ -78,9 +77,10 @@ height: 50px;
 }
 
 .emoji_button{
-    width:40px !important;
-    height: 40px !important;
-   color:rgba(0, 0, 0, 0.457);
+    width:30px !important;
+    height: 30px !important;
+    color:rgba(167, 167, 167, 0.843);
+    font-weight: 100 !important;
 }
 
 .emoji_container .emoji_window{
@@ -97,14 +97,8 @@ z-index: 0;
         position: absolute;
         top:-300px;
         left:50%;
-        
    }
-   .emoji_button{
-    width:30px !important;
-    height: 30px !important;
-}
     
-
 }
 
 /* .mic_button{

@@ -17,6 +17,7 @@
 .userChat:hover .trashChat{
    display: block;
    cursor: pointer;
+   color:rgb(199, 199, 199);
 }
 
 .userChat .trashChat{
@@ -42,7 +43,7 @@
 
 .chatContent p{
     /* max-width: fit-content; */
-    background-color: var(--background);
+    background-color:#558BF2; 
     padding: 10px 20px;
     border-radius: 0px 20px 20px 20px;
 }
@@ -69,24 +70,13 @@
 
 .receiver .chatContent p{
     background:white;
-    border: 1px solid #E7E7E7;
-    color: #515151;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    color: black; 
 }
 
-.receiver .chatContent_dark p{
-background-color: #292929;
-color:white;
-box-shadow: none;
-border:1px solid #323232;
-}
-
-.user .userChat .chatContent p
-{
+.user .userChat .chatContent p{
     max-width: max-content;
     padding: 10px 20px;
     border-radius: 10px 0px 10px 10px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
 }
 
@@ -101,10 +91,11 @@ border:1px solid #323232;
 }
 
 .deletedMessage{
-    min-width: 120px;
+   max-width: 180px;
+   text-wrap: nowrap;
     text-align: center;
-    padding: 5px;
+    padding: 15px;
     background-color: rgba(128, 128, 128, 0.21);
     border-radius: 10px;
-    font-size: 10px;
+    font-size: 16px;
 }

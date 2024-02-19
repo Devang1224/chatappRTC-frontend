@@ -2,18 +2,21 @@
     width: 100%;
     min-height: 70px;
     margin-bottom: 5px;
-    transition: all .3s ease;
     cursor: pointer;
     display: flex;
     align-items: center;
     padding: 10px;
+   border-radius: 50px;
+  
+}
 
+.chattingContainer{
+  background-color: #558BF2;
 
 }
 
 .singleconvo_container:hover{
- box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  transform: translateY(-5px);
+  background-color: #558BF2;
 }
 
 .singleconvo_container img{
@@ -27,9 +30,6 @@
 
     width: 100%;
     padding-left: 10px;
-    font-weight: 100;
+    font-weight: 400;
 }
 
-.singleconvo_container:active{
-  transform: translateY(0px);
-}

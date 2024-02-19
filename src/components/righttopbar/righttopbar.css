@@ -4,8 +4,10 @@
     display: flex;
     align-items: center;
     padding:5px;
-    background-color: var(--color3);
+    /* background-color: rgba(0, 0, 0, 0.279); */
+    /* border-radius:20px; */
     justify-content: space-between;
+
 }
 
 
@@ -19,6 +21,8 @@
     align-items: center;
     gap:10px;
     width: auto;
+    color:rgba(255, 255, 255, 0.843);
+
 }
 
 .sender_container img{
@@ -44,13 +48,15 @@
 }
 
 .videocam:hover{
-    background-color:rgba(175,211,226,0.2);
+    background-color:rgba(175, 211, 226, 0.086);
 }
 
 .videocam button{
     border:none;
     background-color: transparent;
     cursor: pointer;
+    color:#558BF2
+
 }
 
 

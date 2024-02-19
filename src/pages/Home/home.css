@@ -1,10 +1,3 @@
-:root{
-    --background:#F6F1F1;
-    --color1:#AFD3E2;
-    --color2:#19A7CE;
-    --color3:#146C94;
-}
-
 
 
 
@@ -18,7 +11,7 @@
 .main_container{
     width: 100vw;
     height: 100vh;
-    background-color: var(--background);
+    background-color: #2C2C2C;
     display: flex;
     justify-content: center;
     align-items: center;

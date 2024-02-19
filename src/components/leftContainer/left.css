@@ -3,11 +3,12 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    flex:1;
+    flex:0.8;
     align-items: center;
-    background-color: var(--color2);
+    background-color: #2C2C2C;
+
     position: relative;
-    border-right: 1px solid var(--color1);
+    /* border-right: 1px solid black */
 }
 
 .left_container_dark{
@@ -46,7 +47,7 @@
         position: absolute;
         right:-30px;
         top:50%;
-       color:white;
+        color:white;
     }
 
 

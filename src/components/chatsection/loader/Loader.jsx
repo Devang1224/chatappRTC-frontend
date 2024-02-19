@@ -1,12 +1,13 @@
 import React from 'react'
 import "./loader.css"
+import { CircularProgress } from "@mui/material";
 
 const Loader = () => {
   return (
     <div className="loader_container">
-        <span className="loader"></span>
+       <CircularProgress/>
     </div>
   )
 }
 
-export default Loader
+export default Loader;

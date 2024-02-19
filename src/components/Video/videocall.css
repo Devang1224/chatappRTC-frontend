@@ -138,3 +138,27 @@
     }
   }
         
+
+
+@media only screen and (max-width:792px)
+{
+
+  .remoteStreamContainer{
+    position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+
+}
+
+.reactplayer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+}
+
+}

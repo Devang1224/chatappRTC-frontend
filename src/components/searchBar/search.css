@@ -3,7 +3,6 @@
     width: 100%;
     height: 6%;
     display: flex;
-    background-color: var(--color2);
     padding: 5px 10px;
     position: relative;
     margin-bottom: 10px;
@@ -12,10 +11,8 @@
 .search_bar{
     display: flex;
     width: 100%;
-    background-color: var(--color1);
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
-    border: 1px solid #CCCFD0;
 }
 
 .search_bar input{
@@ -23,18 +20,19 @@
     outline: none;
     border:none;
     font-size: 15px;
-    background-color: var(--color1);
+    background-color:#4B4B4B;
     padding:5px;
     padding-left:20px;
+    color:white;
 
 }
 
 .search_results{
     width: 96.5%;
-    height: 84vh;
+    max-height: 84vh;
     position: absolute;
     top: 50px;
-    background: rgba(20, 108, 148, 0.46);
+    background: rgba(74, 82, 86, 0.46);
     border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(7.5px);
@@ -46,6 +44,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 padding:5px;
+color:white;
     
 }
 

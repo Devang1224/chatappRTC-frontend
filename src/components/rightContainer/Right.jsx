@@ -22,7 +22,6 @@ const {receiverData} = useContext(receiverContext);
     :
 <div className='right_container message'>
     <img src= {MessagingImage} className='right_container_background'/>
-
 </div>
 
 

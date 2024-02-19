@@ -5,15 +5,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color1);
+    background-color:#191919;
+
 }
 
 .form-box {
     max-width: 300px;
-    background: #f1f7fe;
+    background-color: #252525;
     overflow: hidden;
     border-radius: 16px;
-    color: #010101;
+    color:rgba(255, 255, 255, 0.958);
   }
   
   .registerform {
@@ -36,7 +37,7 @@
     color: #666;
   }
   
-  /*Inputs box*/
+  /*Input boxes*/
   .form-container {
     overflow: hidden;
     border-radius: 8px;
@@ -47,23 +48,28 @@
   }
   
   .registerinput {
-    background: none;
+    color:white;
     border: 0;
     outline: 0;
     height: 40px;
     width: 100%;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #3e3d3d;
     font-size: .9rem;
     padding: 8px 15px;
+    background-color:#4B4B4B;
   }
   
   .form-section {
+    text-align:center;
     padding: 16px;
     font-size: .85rem;
     background-color: #e0ecfb;
-    box-shadow: rgb(0 0 0 / 8%) 0 -1px;
+    /* box-shadow: rgb(0 0 0 / 8%) 0 -1px; */
   }
   
+  .form-section p{
+    color:black;
+  }
   .form-section a {
     font-weight: bold;
     color: #0066ff;
