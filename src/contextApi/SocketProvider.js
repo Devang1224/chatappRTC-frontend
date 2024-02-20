@@ -12,7 +12,7 @@ export const useSocket = ()=>{              // custom hook now you dont have to 
 
 const SocketProvider = ({children}) => {
 
-const socket = useMemo(()=>io("http://localhost:3000"),[])
+const socket = useMemo(()=>io("https://chatapprtc-backend-production.up.railway.app"),[])
 // http://localhost:3000
 // https://chatapprtc-backend-production.up.railway.app
   return (
